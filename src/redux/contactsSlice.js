@@ -19,7 +19,7 @@ export const contactsSlice = createSlice({
   reducers: {
     addContact: {
       reducer: (state, action) => {
-        state.items.push(action.payload);
+        state.list.push(action.payload);
       },
 
       prepare: ({ id, name, number }) => {
@@ -32,13 +32,9 @@ export const contactsSlice = createSlice({
         };
       },
     },
+
     deleteContact: (state, action) => {
-      state.items = state.items.filter(
-        contact => contact.id !== action.payload
-      );
-    },
-    filterContacts: (state, { payload }) => {
-      state.filter = payload;
+      state.list = state.list.filter(contact => contact.id !== action.payload);
     },
   },
 });
@@ -46,11 +42,10 @@ export const contactsSlice = createSlice({
 const persistConfig = {
   key: 'contacts',
   storage,
-  blacklist: ['filter'],
 };
+
 const contactReducer = contactsSlice.reducer;
-export const { addContact, deleteContact, filterContacts } =
-  contactsSlice.actions;
+export const { addContact, deleteContact } = contactsSlice.actions;
 export const persistedContactsReducer = persistReducer(
   persistConfig,
   contactReducer

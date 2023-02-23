@@ -1,23 +1,22 @@
-import {Wrapper, Label, Input} from './FilterContacts.styled'
-import { useDispatch, useSelector} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getFilter } from 'redux/selectors';
-import { filterContacts } from 'redux/contactsSlice';
-
+import { setContactFilter } from 'redux/filterSlice';
+import { Wrapper, Label, Input } from './FilterContacts.styled';
 
 export const Filter = () => {
   const dispatch = useDispatch();
   const filter = useSelector(getFilter);
 
-  const changeFieldFilter = e =>
-    dispatch(filterContacts(e.currentTarget.value));
-
   return (
     <Wrapper>
-      <Label>
-        Filter:{' '}
-        <Input type="text" value={filter} onChange={changeFieldFilter} />
-      </Label>
+      <Label htmlFor="filter">Filter: </Label>``
+      <Input
+        name="filter"
+        type="text"
+        id="filter"
+        value={filter}
+        onChange={e => dispatch(setContactFilter(e.currentTarget.value))}
+      />
     </Wrapper>
   );
 };
-
