@@ -5,8 +5,8 @@ import { Wrapper, Label, Input } from './FilterContacts.styled';
 
 export function Filter() {
 const dispatch = useDispatch();
-// const filter = useSelector(getFilter);
-// const contacts = useSelector(state => state.contacts);
+const filter = useSelector(getFilter);
+const contacts = useSelector(state => state.contacts);
   const changeFilter = e => {
     console.log(e.currentTarget.value);
     let value = e.currentTarget.value;
