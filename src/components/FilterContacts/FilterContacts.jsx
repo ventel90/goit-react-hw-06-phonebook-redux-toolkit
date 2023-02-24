@@ -14,7 +14,7 @@ export const Filter = () => {
         name="filter"
         type="text"
         id="filter"
-        value={filter}
+//         value={filter}
         onChange={e => dispatch(setContactFilter(e.currentTarget.value))}
       />
     </Wrapper>
