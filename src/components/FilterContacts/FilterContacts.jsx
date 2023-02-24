@@ -3,25 +3,19 @@ import { getFilter } from 'redux/selectors';
 import { setContactFilter } from 'redux/filterSlice';
 import { Wrapper, Label, Input } from './FilterContacts.styled';
 
-export function Filter() {
-const dispatch = useDispatch();
-const filter = useSelector(getFilter);
-const contacts = useSelector(state => state.contacts);
-  const changeFilter = e => {
-    console.log(e.currentTarget.value);
-    let value = e.currentTarget.value;
-    dispatch(setContactFilter(value));
+export const Filter = () => {
+  const dispatch = useDispatch();
+  const filter = useSelector(getFilter);
 
-  };
   return (
     <Wrapper>
-      <Label htmlFor="filter">Filter: </Label>``
+      <Label htmlFor="filter">Find:</Label>
       <Input
         name="filter"
         type="text"
         id="filter"
-//         value={filter}
-        onChange={e => dispatch(changeFilter(e.currentTarget.value))}
+        value={filter}
+        onChange={e => dispatch(setContactFilter(e.currentTarget.value))}
       />
     </Wrapper>
   );
