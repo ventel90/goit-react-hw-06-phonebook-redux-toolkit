@@ -5,7 +5,7 @@ import { Wrapper, Label, Input } from './FilterContacts.styled';
 
 export const Filter = () => {
   const dispatch = useDispatch();
-  const filter = useSelector(getFilter);
+//   const filter = useSelector(getFilter);
 
   return (
     <Wrapper>
