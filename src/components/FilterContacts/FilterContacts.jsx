@@ -9,14 +9,14 @@ export const Filter = () => {
 
   return (
     <Wrapper>
-      <Label htmlFor="filter">Find:</Label>
-      <Input
-        name="filter"
-        type="text"
-        id="filter"
-        value={filter}
-        onChange={e => dispatch(setContactFilter(e.currentTarget.value))}
-      />
+      <Label htmlFor="filter">Find: <Input
+          name="filter"
+          type="text"
+          id="filter"
+          value={filter}
+          onChange={e => dispatch(setContactFilter(e.currentTarget.value))}
+        />
+      </Label>
     </Wrapper>
   );
 };
